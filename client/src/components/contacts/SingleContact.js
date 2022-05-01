@@ -8,20 +8,11 @@ const SingleContact = ({ contact }) => {
         <div className="card">
           <div className="card-body">
             <div className="row">
-              <div className="col-md-10">
-                <p>
-                  First Name:{" "}
-                  <span className="fw-bold">{contact.first_name}</span>
-                </p>
-                <p>
-                  First Name:{" "}
-                  <span className="fw-bold">{contact.first_name}</span>
-                </p>
-                <p>
-                  First Name:{" "}
-                  <span className="fw-bold">{contact.first_name}</span>
-                </p>
-
+              <div className="col-md-2 align-self-center">
+                <p className="h3">ID</p>
+                <p className="h3">{contact.id}</p>
+              </div>
+              <div className="col-md-8">
                 <p>
                   First Name:{" "}
                   <span className="fw-bold">{contact.first_name}</span>
@@ -29,6 +20,13 @@ const SingleContact = ({ contact }) => {
                 <p>
                   Last Name:{" "}
                   <span className="fw-bold">{contact.last_name}</span>
+                </p>
+                <p>
+                  Occupation:{" "}
+                  <span className="fw-bold">{contact.occupation}</span>
+                </p>
+                <p>
+                  Phone: <span className="fw-bold">{contact.phone}</span>
                 </p>
               </div>
               <div className="col-md-2 d-flex flex-column align-items-center justify-content-evenly">
