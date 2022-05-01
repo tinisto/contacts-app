@@ -2,6 +2,7 @@ import { fetchAllContacts } from "../../api/index.js"
 import { useState, useEffect } from "react"
 import { BsPlusCircle } from "react-icons/bs"
 import { Link } from "react-router-dom"
+import SingleContact from "./SingleContact"
 
 const AllContacts = () => {
   const [contacts, setContacts] = useState([])
@@ -34,6 +35,15 @@ const AllContacts = () => {
                 qui, consequatur magni veritatis velit.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="p-3">
+        <div className="container">
+          <div className="row">
+            {contacts.map((contact) => (
+              <SingleContact key={contact.id} contact={contact} />
+            ))}
           </div>
         </div>
       </section>
