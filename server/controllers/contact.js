@@ -1,7 +1,22 @@
-const ContactModel = require("../models/ContactModel.js")
+const { Contacts } = require("../models")
 
-const getAllContacts = (req, res) => {
-  res.send("contact router....!")
+const getAllContacts = async (req, res) => {
+  try {
+    const contacts = await Contacts.findAll()
+    res.json(contacts)
+  } catch (error) {
+    console.error(error)
+  }
 }
 
-module.exports = { getAllContacts }
+const createContact = async (req, res) => {
+  const contact = req.body
+  try {
+    await Contacts.create(contact)
+    res.json(contact)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+module.exports = { getAllContacts, createContact }
