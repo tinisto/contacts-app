@@ -19,4 +19,14 @@ const createContact = async (req, res) => {
   }
 }
 
-module.exports = { getAllContacts, createContact }
+const deleteContact = async (req, res) => {
+  const id = req.params.id
+  try {
+    await Contacts.destroy({ where: { id: id } })
+    res.json("deleted")
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+module.exports = { getAllContacts, createContact, deleteContact }
