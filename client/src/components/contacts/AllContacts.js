@@ -2,13 +2,20 @@ import { fetchAllContacts } from "../../api/index.js"
 import { useState, useEffect } from "react"
 
 const AllContacts = () => {
-  useEffect(() => {}, [])
+  const [contacts, setContacts] = useState([])
+  useEffect(() => {
+    getData()
+  }, [])
 
   const getData = async () => {
     const result = await fetchAllContacts()
-    console.log(result.data)
+    setContacts(result.data)
   }
 
-  return <div>AllContacts</div>
+  return (
+    <>
+      <pre>{JSON.stringify(contacts, null, 2)}</pre>
+    </>
+  )
 }
 export default AllContacts
