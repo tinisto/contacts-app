@@ -9,6 +9,15 @@ const getAllContacts = async (req, res) => {
   }
 }
 
+const getContactById = async (req, res) => {
+  const id = req.params.id
+  try {
+    const result = await Contacts.findByPk(id)
+    res.json(result)
+  } catch (error) {
+    console.log(error)
+  }
+}
 const createContact = async (req, res) => {
   const contact = req.body
   try {
@@ -41,4 +50,10 @@ const updateContact = async (req, res) => {
   await Contacts
 }
 
-module.exports = { getAllContacts, createContact, deleteContact, updateContact }
+module.exports = {
+  getAllContacts,
+  createContact,
+  deleteContact,
+  updateContact,
+  getContactById,
+}
