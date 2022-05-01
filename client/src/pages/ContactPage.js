@@ -1,4 +1,10 @@
+import AllContacts from "../components/contacts/AllContacts"
+
 const ContactPage = () => {
-  return <div>ContactPage</div>
+  return (
+    <>
+      <AllContacts />
+    </>
+  )
 }
 export default ContactPage
