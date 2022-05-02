@@ -1,4 +1,4 @@
-import { fetchAllContacts } from "../../api/index.js"
+import { fetchAllContacts, deleteContact } from "../../api/index.js"
 import { useState, useEffect } from "react"
 import { BsPlusCircle } from "react-icons/bs"
 import { Link } from "react-router-dom"
@@ -13,6 +13,15 @@ const AllContacts = () => {
   const getData = async () => {
     const result = await fetchAllContacts()
     setContacts(result.data)
+  }
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteContact(id)
+      setContacts(contacts.filter((contact) => contact.id !== id))
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -46,7 +55,11 @@ const AllContacts = () => {
                   {contacts.length === 1 ? "contact" : "contacts"}.
                 </p>
                 {contacts.map((contact) => (
-                  <SingleContact key={contact.id} contact={contact} />
+                  <SingleContact
+                    key={contact.id}
+                    contact={contact}
+                    handleDelete={handleDelete}
+                  />
                 ))}
               </>
             ) : (

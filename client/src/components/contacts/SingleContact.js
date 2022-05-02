@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { BsPencil, BsTrash, BsEye } from "react-icons/bs"
 
-const SingleContact = ({ contact }) => {
+const SingleContact = ({ contact, handleDelete }) => {
   return (
     <>
       <div className="col-md-6 py-2">
@@ -39,7 +39,7 @@ const SingleContact = ({ contact }) => {
                 </Link>
 
                 <button className="btn btn-danger">
-                  <BsTrash />
+                  <BsTrash onClick={() => handleDelete(contact.id)} />
                 </button>
               </div>
             </div>
