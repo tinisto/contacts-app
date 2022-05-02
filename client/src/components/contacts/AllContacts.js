@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { BsPlusCircle } from "react-icons/bs"
 import { Link } from "react-router-dom"
 import SingleContact from "./SingleContact"
+import axios from "axios"
 
 const AllContacts = () => {
   const [contacts, setContacts] = useState([])
