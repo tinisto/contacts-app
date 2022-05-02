@@ -1,6 +1,9 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+const { fetchCreateContact } = require("../../api/index")
 
 const NewContact = () => {
+  const navigate = useNavigate()
   const [state, setState] = useState({
     first_name: "",
     last_name: "",
@@ -13,13 +16,22 @@ const NewContact = () => {
   }
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log(state)
+    newContact(state)
     setState({
       first_name: "",
       last_name: "",
       occupation: "",
       phone: "",
     })
+    navigate("/contacts")
+  }
+
+  const newContact = async (state) => {
+    try {
+      await fetchCreateContact(state)
+    } catch (error) {
+      console.log(error)
+    }
   }
   return (
     <>
