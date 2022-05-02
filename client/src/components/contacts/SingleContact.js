@@ -4,7 +4,7 @@ import { BsPencil, BsTrash, BsEye } from "react-icons/bs"
 const SingleContact = ({ contact }) => {
   return (
     <>
-      <div className="col-md-6">
+      <div className="col-md-6 py-2">
         <div className="card">
           <div className="card-body">
             <div className="row">

@@ -17,7 +17,6 @@ const AllContacts = () => {
 
   return (
     <>
-      <pre>{JSON.stringify(contacts, null, 2)}</pre>
       <section className="p-3">
         <div className="containter">
           <div className="row">
@@ -29,10 +28,9 @@ const AllContacts = () => {
                   New
                 </Link>
               </p>
-              <p className="fst-italic">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto,
-                quas facilis. Ipsam consequuntur esse fugiat enim error modi
-                qui, consequatur magni veritatis velit.
+              <p className="fst-italic text-center">
+                In DataBase now {contacts.length}{" "}
+                {contacts.length === 1 ? "contact" : "contacts"}.
               </p>
             </div>
           </div>
