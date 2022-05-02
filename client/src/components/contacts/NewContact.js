@@ -23,12 +23,12 @@ const NewContact = () => {
       occupation: "",
       phone: "",
     })
-    navigate("/contacts")
   }
 
   const newContact = async (state) => {
     try {
       await fetchCreateContact(state)
+      navigate("/contacts")
     } catch (error) {
       console.log(error)
     }
