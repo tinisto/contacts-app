@@ -28,10 +28,6 @@ const AllContacts = () => {
                   New
                 </Link>
               </p>
-              <p className="fst-italic text-center">
-                In DataBase now {contacts.length}{" "}
-                {contacts.length === 1 ? "contact" : "contacts"}.
-              </p>
             </div>
           </div>
         </div>
@@ -39,9 +35,25 @@ const AllContacts = () => {
       <section className="p-3">
         <div className="container">
           <div className="row">
-            {contacts.map((contact) => (
-              <SingleContact key={contact.id} contact={contact} />
-            ))}
+            {contacts.length > 0 ? (
+              <>
+                <p className="fst-italic text-center">
+                  In DataBase now
+                  <span className="fw-bold text-danger">
+                    {" "}
+                    {contacts.length}{" "}
+                  </span>
+                  {contacts.length === 1 ? "contact" : "contacts"}.
+                </p>
+                {contacts.map((contact) => (
+                  <SingleContact key={contact.id} contact={contact} />
+                ))}
+              </>
+            ) : (
+              <>
+                <p className="h3">DataBase is empty.</p>
+              </>
+            )}
           </div>
         </div>
       </section>
