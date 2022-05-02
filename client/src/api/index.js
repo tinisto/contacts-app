@@ -1,6 +1,7 @@
 import axios from "axios"
 
-const url = "http://localhost:3001/contacts"
+const url = "https://crud-app-react-node.herokuapp.com/contacts"
+// const url = "http://localhost:3001/contacts"
 
 export const fetchAllContacts = () => axios.get(url)
 export const fetchContactById = (id) => axios.get(`${url}/${id}`)
